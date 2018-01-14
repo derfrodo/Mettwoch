@@ -4,12 +4,18 @@ import { OrderPositionInfo } from "../interfaces/OrderPositionInfo";
 
 export class PositionHelper {
 
-    getPositionInfo(positionProps: OrderPositionData): OrderPositionInfo | undefined {
-        return positionProps && positionProps.info ? positionProps.info : undefined;
+    getPositionInfo(data: OrderPositionData | undefined): OrderPositionInfo | undefined {
+        return data && data.info ? data.info : undefined;
     }
 
-    isWholeNumberOrderPosition(template: OrderPositionInfo | undefined): boolean {
-        return (!!template) && template.type === OrderPositionTypes.numericWholeNumber;
+    isWholeNumberOrderPosition(data: OrderPositionData | undefined): boolean {
+        let info = this.getPositionInfo(data);
+        return (!!info) && info.type === OrderPositionTypes.numericWholeNumber;
+    }
+
+    getLabel(data: OrderPositionData | undefined) {
+        let info = this.getPositionInfo(data);
+        return info ? info.label : undefined;
     }
 
 }

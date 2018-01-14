@@ -9,10 +9,8 @@ import { OrderPositionData } from "../interfaces/OrderPositionData";
 export class OrderPostion extends React.Component<OrderPositionData> {
 
     render() {
-        let template = PositionHelper.getPositionInfo(this.props);
-
         let positionElement;
-        positionElement = PositionHelper.isWholeNumberOrderPosition(template) && <NumericWholeNumbersOrderPostion />;
+        positionElement = PositionHelper.isWholeNumberOrderPosition(this.props) && <NumericWholeNumbersOrderPostion />;
 
         positionElement = positionElement || <UnknownOrderPosition />;
 
