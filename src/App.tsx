@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { AppProviderWithRouter } from "./redux/index";
+import AppProviderWithRouter from "./redux/AppProviderWithRouter";
 
 import { Route, Redirect } from "react-router";
 import { Link } from "react-router-dom";
