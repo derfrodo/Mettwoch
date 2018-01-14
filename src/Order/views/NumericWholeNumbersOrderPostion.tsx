@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Slider } from "./../../Components/Slider";
+// import { Slider } from "./../../Components/Slider";
 import { NumericInput } from "./../../Components/NumericInput";
 import PositionHelper from "../utils/PositionHelper";
 import { OrderPositionProps } from "../interfaces/OrderPositionProps";
@@ -12,13 +12,13 @@ export const NumericWholeNumbersOrderPostion = (props: OrderPositionProps) => {
                 <div className="col-sm-4">
                     {PositionHelper.getLabel(props.data)}
                 </div>
-                <div className="col-sm-4">
+                {/* <div className="col-sm-4">
                     <Slider
                         value={PositionHelper.getNumericValue(props.data)}
                         onChanged={(nextValue) => props.setPosition(props.data.value.id, nextValue)}
                         meta={props.data.info.numberMeta}
                     />
-                </div>
+                </div> */}
                 <div className="col-sm-4">
                     <NumericInput
                         value={PositionHelper.getNumericValue(props.data)}
