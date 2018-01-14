@@ -1,1 +1,1 @@
-require('rc-slider/assets/index.css');
+require("rc-slider/assets/index.css");
