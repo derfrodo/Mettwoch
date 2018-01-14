@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "history": "^4.7.2",
     "rc-slider": "^8.6.0",
     "react": "^16.2.0",
@@ -14,12 +15,16 @@
     "react-scripts-ts": "2.10.0"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "lint": "tslint src/**/*.ts{,x}",
-    "watch-lint": "npm-watch lint"
+    "watch-lint": "npm-watch lint",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts-ts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts-ts build",
+    "build": "npm-run-all build-css build-js"
   },
   "watch": {
     "lint": "src/**/*.ts{,x}"
@@ -33,6 +38,8 @@
     "@types/react-numeric-input": "^2.2.0",
     "@types/react-redux": "^5.0.14",
     "@types/react-router-dom": "^4.2.3",
-    "@types/react-router-redux": "^5.0.11"
+    "@types/react-router-redux": "^5.0.11",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.2"
   }
 }

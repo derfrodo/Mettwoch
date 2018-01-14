@@ -1,0 +1,15 @@
+@import "./style/variables.scss"; 
+
+a,
+a:active,
+a:visited,
+a:focus{
+    color: $baseColor;
+    &::hover{
+        color: $baseColor;
+    }
+}
+
+body{
+
+}
