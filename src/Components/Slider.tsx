@@ -1,10 +1,14 @@
-
 import * as React from "react";
 import RCSlider from "rc-slider";
 
-export const Slider: React.StatelessComponent = () => (
+// tslint:disable:no-any
+interface SliderProps {
+    value?: number;
+    onChanged?: ((value: number) => any);
+}
+export const Slider = ({ value, onChanged }: SliderProps) => (
     <div>
-        <RCSlider />
+        <RCSlider value={value} onAfterChange={onChanged} />
     </div>
 );
 

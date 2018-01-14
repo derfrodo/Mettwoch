@@ -1,9 +1,14 @@
 import * as React from "react";
 import * as NumInput from "react-numeric-input";
 
-export const NumericInput: React.StatelessComponent = () => (
+// tslint:disable:no-any
+interface NumericProps {
+    value?: number | string;
+    onChanged?: ((value: number) => any);
+}
+export const NumericInput = ({ value, onChanged }: NumericProps) => (
     <div>
-        <NumInput />
+        <NumInput value={value} onChange={onChanged} />
     </div>
 );
 
