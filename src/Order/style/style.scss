@@ -1,5 +1,35 @@
 @import "./../../style/variables.scss";
+
+
 // order specific styles
 .order-position {
-    color: $magicNumber;
+    color: $magicNumberPx;
+}
+
+.order-position-row {
+
+    // Center content like a boss: http://phrogz.net/CSS/vertical-align/index.html
+    line-height: $magicNumberPx * 4; // from sm on...
+    @media (min-width: 768px) {
+        height: $magicNumberPx * 8;
+        .order-position-cell {
+            height: 100%;
+            .order-position-label {
+                display: table;
+                height: 100%;
+                .label-text {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+            }
+            .order-position-input {
+                display: table;
+                height: 100%;
+                .input-controls {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
 }

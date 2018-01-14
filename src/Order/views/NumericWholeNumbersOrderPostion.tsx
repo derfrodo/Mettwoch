@@ -8,9 +8,24 @@ import { OrderPositionProps } from "../interfaces/OrderPositionProps";
 export const NumericWholeNumbersOrderPostion = (props: OrderPositionProps) => {
     return (
         <div className="container-flex">
-            <div className="row">
-                <div className="col-sm-4">
-                    {PositionHelper.getLabel(props.data)}
+            <div className="row order-position-row">
+                <div className="col-sm-4 order-position-cell" >
+                    <div className="order-position-label">
+                        <div className="label-text">
+                            {PositionHelper.getLabel(props.data)}
+                        </div>
+                    </div>
+                </div>
+                <div className="col-sm-8 order-position-cell">
+                    <div className="order-position-input">
+                        <div className="input-controls">
+                            <NumericInput
+                                value={PositionHelper.getNumericValue(props.data)}
+                                onChanged={(nextValue) => props.setPosition(props.data.value.id, nextValue)}
+                                meta={props.data.info.numberMeta}
+                            />
+                        </div>
+                    </div>
                 </div>
                 {/* <div className="col-sm-4">
                     <Slider
@@ -19,13 +34,6 @@ export const NumericWholeNumbersOrderPostion = (props: OrderPositionProps) => {
                         meta={props.data.info.numberMeta}
                     />
                 </div> */}
-                <div className="col-sm-4">
-                    <NumericInput
-                        value={PositionHelper.getNumericValue(props.data)}
-                        onChanged={(nextValue) => props.setPosition(props.data.value.id, nextValue)}
-                        meta={props.data.info.numberMeta}
-                    />
-                </div>
             </div>
         </div>
     );
