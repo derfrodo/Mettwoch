@@ -10,9 +10,10 @@ export class OrderPostion extends React.Component<OrderPositionData> {
 
     render() {
         let positionElement;
-        positionElement = PositionHelper.isWholeNumberOrderPosition(this.props) && <NumericWholeNumbersOrderPostion />;
+        positionElement = PositionHelper.isWholeNumberOrderPosition(this.props) &&
+            <NumericWholeNumbersOrderPostion {...this.props} />;
 
-        positionElement = positionElement || <UnknownOrderPosition />;
+        positionElement = positionElement || <UnknownOrderPosition {...this.props} />;
 
         return (
             <div className="order-postion">

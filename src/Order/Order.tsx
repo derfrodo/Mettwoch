@@ -11,6 +11,7 @@ import { OrderData } from "./interfaces/OrderData";
 export const Order = (props: RouteComponentProps<OrderData>) => (
     <div>
         <h1>Place your Order</h1>
+        <OrderPostion info={{ type: OrderPositionTypes.numericWholeNumber, label: "Buns" }} />
         <OrderPostion info={{ type: OrderPositionTypes.numericWholeNumber, label: "" }} />
         <OrderPostion info={{ type: OrderPositionTypes.unknown, label: "" }} />
     </div>
