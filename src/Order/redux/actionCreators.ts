@@ -15,3 +15,7 @@ export const setOrderPositionValue = (id: PositionId, nextValue: PostionValue): 
     };
     return result;
 };
+
+export default {
+    setPositionValue: setOrderPositionValue,
+};

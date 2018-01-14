@@ -24,14 +24,13 @@ const mapStateToProps =
         });
 
 const mapDispatchToProps = (dispatch: Dispatch<{}>, ownProps: OrderViewProps): OrderViewProps => {
-    let boundActions = bindActionCreators({ setPosition: ActionCreators.setOrderPositionValue }, dispatch);
+    let boundActions = bindActionCreators({ setPositionValue: ActionCreators.setOrderPositionValue }, dispatch);
     return ({
         ...ownProps,
         ...boundActions
     });
 };
 
-export const Order = connect(mapStateToProps, mapDispatchToProps
-)(OrderFunctional);
+export const Order = connect(mapStateToProps, mapDispatchToProps)(OrderFunctional);
 
 export default Order;

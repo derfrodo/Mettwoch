@@ -11,7 +11,7 @@ import { PositionId, PostionValue } from "../interfaces/OrderPositionValue";
 
 export interface OrderViewProps extends RouteComponentProps<{}> {
     order: OrderData;
-    setPosition: (id: PositionId, nextValue: PostionValue) => Action;
+    setPositionValue: (id: PositionId, nextValue: PostionValue) => Action;
 }
 
 export const OrderView = (props: OrderViewProps) => {
@@ -19,7 +19,7 @@ export const OrderView = (props: OrderViewProps) => {
     const orderPositions = props.order && props.order.positions.map((p, i) => (
         <OrderPostion
             key={p.value ? p.value.id : i}
-            setPosition={props.setPosition}
+            setPosition={props.setPositionValue}
             data={p}
         />));
 
