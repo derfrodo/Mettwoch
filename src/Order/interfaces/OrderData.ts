@@ -4,5 +4,7 @@ export interface OrderData {
     // Something like "Mettwoch"
     name: string;
     
+    label: string;
+    
     positions: OrderPositionData[];
 }

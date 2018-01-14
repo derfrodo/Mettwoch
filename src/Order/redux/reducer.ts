@@ -11,7 +11,8 @@ export interface OrderState {
 
 const defaultState: OrderState = {
     orderData: {
-        name: "Deine Mettwoch Bestellung",
+        name: "Mettwoch",
+        label: "Deine Mettwoch Bestellung",
         positions: [
             {
                 info: {
