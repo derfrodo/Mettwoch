@@ -16,12 +16,14 @@ export const NumericWholeNumbersOrderPostion = (props: OrderPositionProps) => {
                     <Slider
                         value={PositionHelper.getNumericValue(props.data)}
                         onChanged={(nextValue) => props.setPosition(props.data.value.id, nextValue)}
+                        meta={props.data.info.numberMeta}
                     />
                 </div>
                 <div className="col-sm-4">
                     <NumericInput
                         value={PositionHelper.getNumericValue(props.data)}
                         onChanged={(nextValue) => props.setPosition(props.data.value.id, nextValue)}
+                        meta={props.data.info.numberMeta}
                     />
                 </div>
             </div>

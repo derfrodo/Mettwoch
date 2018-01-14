@@ -6,26 +6,50 @@ import { OrderPositionTypes } from "../constants/OrderTypes";
 import { SetOrderPositionValueAction } from "./actionCreators";
 
 export interface OrderState {
-    orderData: OrderData | undefined;
+    orderData: OrderData;
 }
 
 const defaultState: OrderState = {
     orderData: {
-        name: "Some Order", positions: [
+        name: "Deine Mettwoch Bestellung",
+        positions: [
             {
-                info: { label: "Got Buns?", type: OrderPositionTypes.numericWholeNumber },
+                info: {
+                    label: "Brötchen:",
+                    type: OrderPositionTypes.numericWholeNumber,
+                    numberMeta: {
+                        maximum: 5,
+                        minimum: 1,
+                        precision: 0,
+                    }
+                },
                 value: { id: 1, value: 2 },
-
+            },
+            {
+                info: {
+                    label: "Menge Mett:",
+                    type: OrderPositionTypes.numericWholeNumber,
+                    numberMeta: {
+                        maximum: 750,
+                        minimum: 0,
+                        stepSize: 25,
+                        precision: -1,
+                    }
+                },
+                value: {
+                    id: 2,
+                    value: 2
+                },
             },
             {
                 info: { label: "Unknown", type: OrderPositionTypes.unknown },
-                value: { id: 2, value: 2 },
+                value: { id: 3, value: 2 },
             }
         ]
     }
 };
 
-const orderDataReducer = (state: OrderData = { name: "", positions: [] }, action: Action): OrderData => {
+const orderDataReducer = (state: OrderData = defaultState.orderData, action: Action): OrderData => {
     switch (action.type) {
         default:
             return state;
