@@ -3,6 +3,7 @@ import { Action } from "redux";
 
 import OrderActions from "./actions";
 import { OrderPositionTypes } from "../constants/OrderTypes";
+import { SetOrderPositionValueAction } from "./actionCreators";
 
 export interface OrderState {
     orderData: OrderData | undefined;
@@ -24,13 +25,24 @@ const defaultState: OrderState = {
     }
 };
 
-export const orderReducer = (state: OrderState = defaultState, action: Action) => {
+const orderDataReducer = (state: OrderData = { name: "", positions: [] }, action: Action): OrderData => {
     switch (action.type) {
-        case OrderActions.setOrderPositionValue:
-            return state;
         default:
             return state;
+        case OrderActions.setOrderPositionValue:
+            const soa = action as SetOrderPositionValueAction;
+            return {
+                ...state, positions: state.positions.map(p =>
+                    (soa.id !== p.value.id ?
+                        { ...p } : { ...p, value: { ...p.value, value: soa.nextValue } }))
+            };
     }
+};
+
+export const orderReducer = (state: OrderState = defaultState, action: Action) => {
+    return {
+        orderData: orderDataReducer(state.orderData, action),
+    };
 };
 
 export default orderReducer;

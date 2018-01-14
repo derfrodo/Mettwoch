@@ -8,7 +8,7 @@ interface SliderProps {
 }
 export const Slider = ({ value, onChanged }: SliderProps) => (
     <div>
-        <RCSlider value={value} onAfterChange={onChanged} />
+        <RCSlider value={value} onChange={onChanged} />
     </div>
 );
 
