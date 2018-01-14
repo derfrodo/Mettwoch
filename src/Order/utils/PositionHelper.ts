@@ -3,6 +3,13 @@ import { OrderPositionData } from "../interfaces/OrderPositionData";
 import { OrderPositionInfo } from "../interfaces/OrderPositionInfo";
 
 export class PositionHelper {
+    getNumericValue(data: OrderPositionData | undefined): number {
+        return (
+            data &&
+            data.value &&
+            typeof data.value.value === "number") ?
+            data.value.value : NaN;
+    }
 
     getPositionInfo(data: OrderPositionData | undefined): OrderPositionInfo | undefined {
         return data && data.info ? data.info : undefined;
